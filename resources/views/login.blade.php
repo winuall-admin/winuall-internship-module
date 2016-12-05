@@ -20,7 +20,7 @@
         <form method="POST" action="/auth/login">
             {!! csrf_field() !!}
         
-                <input type="text" name="phone"  placeholder="Email\Phone">
+                <input type="email" name="email" value="{{ old('email') }}" placeholder="Email">
         
                 <input type="password" name="password" id="password" placeholder="Password">
             <br>
