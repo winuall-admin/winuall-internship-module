@@ -21,7 +21,7 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::get('/', 'Helper@DisplayQ');
-
+Route::get('/home', 'Helper@DisplayQ');
 Route::get('login', function(){
    return view('login'); 
 });
