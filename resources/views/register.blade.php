@@ -39,7 +39,9 @@
             <div>
                 <input type="password" name="password_confirmation" placeholder="Confirm Password">
             </div>
-        
+            <div>
+                {!! app('captcha')->display(); !!}
+            </div>
             <div>
                 <button type="submit">Register</button>
             </div>
