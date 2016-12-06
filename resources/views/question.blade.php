@@ -10,7 +10,7 @@
     </head>
     <body>
         <h1>{{ $Question->question }}</h1>
-        @foreach($Answers as $answer):
+        @foreach($Answers as $answer)
             <p>{{ $answer->answer }}
             <span><a href="../answer/{{$answer->id}}">Read More</a></span></p>
         @endforeach

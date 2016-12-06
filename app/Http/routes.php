@@ -30,6 +30,8 @@ Route::get('register', function(){
     return view('register');
 });
 
+Route::get('profile', 'Helper@Profile');
 Route::get('question/{id}', 'Helper@Question');
-
+Route::get('myans', 'Helper@MyAns');
+Route::get('myques', 'Helper@MyQues');
 Route::get('answer/{id}', 'Helper@Answer');

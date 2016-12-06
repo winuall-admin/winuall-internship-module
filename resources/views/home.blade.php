@@ -33,6 +33,7 @@
             <h1>Home</h1>
             <a href="login" style="margin-left:60px"><em>Login</em></a>
             <a href="register" style="margin-left:10px"><em>Register</em></a>
+            <a href="profile" style="margin-left:10px"><em>Profile</em></a>
         <main>
             @foreach($questions as $question)
                 <h3><a href="question/{{ $question->id }}" >{{ $question->question }}</a></h3>
