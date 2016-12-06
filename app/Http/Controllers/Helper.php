@@ -9,6 +9,7 @@ use App\Question as Question;
 use App\User as User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class Helper extends Controller
 {
@@ -70,6 +71,21 @@ class Helper extends Controller
                 'answers' => $answers
             );
             return view('myans', $data);
+        }else{
+            return view('login');
+        }
+    }
+    
+    public function Ask(Request $request){
+    
+        if (Auth::check()) {
+            $user = Auth::user();
+            if(strlen($request->input('question')) > 0){
+                DB::table('questions')->insert(
+                    ['question' => $request->input('question'), 'uid' => $user->id]
+                );
+            }
+            return redirect()->back();
         }else{
             return view('login');
         }
