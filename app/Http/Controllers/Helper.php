@@ -26,10 +26,20 @@ class Helper extends Controller
         
         $question = Question::find($id);
         $answers = Answer::where('qid', '=', $id)->get();
-        $data = array(
-                'Question' => $question,
-                'Answers' => $answers
-            );
+        if (Auth::check()) {
+            $user = Auth::user();
+            $data = array(
+                    'Question' => $question,
+                    'Answers' => $answers,
+                    'user' => $user->id
+                );
+        }else{
+            $data = array(
+                    'Question' => $question,
+                    'Answers' => $answers,
+                    'user' => 0
+                );
+        }
         return view('question', $data);
     }
     
@@ -83,6 +93,21 @@ class Helper extends Controller
             if(strlen($request->input('question')) > 0){
                 DB::table('questions')->insert(
                     ['question' => $request->input('question'), 'uid' => $user->id]
+                );
+            }
+            return redirect()->back();
+        }else{
+            return view('login');
+        }
+    }
+    
+    public function Ans(Request $request){
+    
+        if (Auth::check()) {
+            $user = Auth::user();
+            if(strlen($request->input('answer')) > 0){
+                DB::table('answers')->insert(
+                    ['answer' => $request->input('answer'), 'qid' => $request->input('qid'),'uid' => $user->id]
                 );
             }
             return redirect()->back();

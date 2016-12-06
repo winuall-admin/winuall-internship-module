@@ -13,7 +13,8 @@
         <header>
             <form action="ask" method="POST">
                 {!! csrf_field() !!}
-                <input type="textarea" name="question" value="Ask a Question" required/>
+                <textarea type="textarea" name="question" placeholder="Ask a Question" rows="5" cols="70" required/></textarea>
+                <br />
                 <button type="submit">Submit</button>
             </form>
         </header>

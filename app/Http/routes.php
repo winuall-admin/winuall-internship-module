@@ -30,6 +30,7 @@ Route::get('register', function(){
     return view('register');
 });
 Route::post('ask', 'Helper@Ask');
+Route::post('ans', 'Helper@Ans');
 Route::get('profile', 'Helper@Profile');
 Route::get('question/{id}', 'Helper@Question');
 Route::get('myans', 'Helper@MyAns');
